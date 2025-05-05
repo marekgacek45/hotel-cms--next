@@ -1,21 +1,19 @@
 import Image from 'next/image'
 
-import logo from '@/public/assets/logo-icon.svg'
-import  CONFIG  from '@/lib/config'
 import Link from 'next/link'
 import { SOCIALS } from '@/lib/socials'
 
-
 import marketingMix from '@/public/assets/marketingmix-logo--light.svg'
+import { getAssetUrl } from '@/lib/utils'
 
-const Footer = () => {
+const Footer = ({ global: { name, logo, phone, mail, address, city } }: { global: Global }) => {
 	return (
 		<footer className='pt-16 pb-32  relative px-7 2xl:px-0'>
 			{/* <Image src={bgPattern} alt='bg' className='absolute top-0 left-0 w-full h-full object-cover -z-10' fill /> */}
 
 			<div className='max-w-screen-xl mx-auto '>
 				{/* LOGO */}
-				<Image src={logo} alt={CONFIG.siteName} width={84} height={86} className=' mx-auto size-20' />
+				<Image src={getAssetUrl(logo)} alt={name} width={84} height={86} className=' mx-auto size-20' />
 				{/* GRID */}
 				<div className='grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 mt-11 '>
 					{/* links */}
@@ -46,26 +44,26 @@ const Footer = () => {
 					</div>
 					{/* info */}
 					<div className='text-center'>
-						<h2 className='text-lg  text-primary-600 uppercase'>{CONFIG.siteName}</h2>
+						<h2 className='text-lg  text-primary-600 uppercase'>{name}</h2>
 						<div className='flex flex-col justify-center items-center gap-6 mt-6'>
 							<Link href='#' className='group flex flex-col'>
 								<span className='!text-base !text-white/66 !font-normal group-hover:!text-primary-600 duration-300'>
-									ul. Zakopiańska 20a
+									{address}
 								</span>
 								<span className='!text-base !text-white/66 !font-normal group-hover:!text-primary-600 duration-300'>
-									59-850 Świeradów-Zdrój
+									{city}
 								</span>
 							</Link>
 							<div className='flex flex-col justify-center items-center gap-1.5'>
 								<Link
-									href='#'
+									href={`tel:${phone}`}
 									className='utility-link !text-base !text-white/66 !font-normal !lowercase hover:!text-primary-600'>
-									+48 123 456 789
+									+48 {phone}
 								</Link>
 								<Link
-									href='#'
+									href={`mailto:${mail}`}
 									className='utility-link !text-base !text-white/66 !font-normal !lowercase hover:!text-primary-600'>
-									test@test.pl
+									{mail}
 								</Link>
 							</div>
 						</div>
@@ -75,17 +73,18 @@ const Footer = () => {
 						<h2 className='text-lg  text-primary-600 uppercase'>Odwiedź nas</h2>
 
 						<ul className='flex justify-center lg:justify-end items-center gap-3 mt-6'>
-							{SOCIALS.map(({ name, link, icon: Icon }) => (
+							{/* {SOCIALS.map(({ name, link, icon: Icon }) => (
 								<li key={name}>
 									<Link
 										href={link}
 										target='_blank'
 										rel='noopener noreferrer nofollow'
-										className='block border border-primary-600 rounded-full p-3 hover:border-gray-400 group duration-300' aria-label={name}>
+										className='block border border-primary-600 rounded-full p-3 hover:border-gray-400 group duration-300'
+										aria-label={name}>
 										<Icon className='size-4 text-primary-600 group-hover:text-gray-400 duration-300 transition-colors ' />
 									</Link>
 								</li>
-							))}
+							))} */}
 						</ul>
 						<div className='flex flex-col items-center lg:items-end gap-4 lg:gap-1.5 mt-10'>
 							<span className='flex justify-center items-center gap-2  utility-link !text-base !text-white/66 !font-normal !normal-case'>
@@ -95,7 +94,9 @@ const Footer = () => {
 								</Link>
 							</span>
 
-							<Link href='#' className='utility-link !text-sm !text-white/66 !font-normal !normal-case hover:!text-primary-600'>
+							<Link
+								href='#'
+								className='utility-link !text-sm !text-white/66 !font-normal !normal-case hover:!text-primary-600'>
 								Ustawienia cookies
 							</Link>
 						</div>

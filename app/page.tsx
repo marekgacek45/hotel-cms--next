@@ -9,21 +9,29 @@ import AttractionsArea from '@/components/home/attractions-area'
 import AttractionsHotel from '@/components/home/attractions-hotel'
 import Faq from '@/components/home/faq'
 import Vouchers from '@/components/home/vouchers'
+import { getHomeData } from '@/lib/queries'
 
-export default function Home() {
+const Home = async () => {
+
+const homeHero = await getHomeData(['home_hero_type','home_hero_video','home_hero_image.id','home_hero_image.description','home_hero_preheading','home_hero_heading','home_hero_subheading',]);
+
+console.log('HOMEPAGE',homeHero.home_hero_image)
+	
 	return (
 		<>
-			<Hero />
+			<Hero data={homeHero} />
 			<About />
 			<Children />
-			<AboutSecond/>
+			<AboutSecond />
 			<SpecialOffers />
 			<Morning />
-			<Restaurant/>
-			<AttractionsArea/>
-			<AttractionsHotel/>
+			<Restaurant />
+			<AttractionsArea />
+			<AttractionsHotel />
 			<Faq />
-			<Vouchers/>
+			<Vouchers />
 		</>
 	)
 }
+
+export default Home

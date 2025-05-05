@@ -8,14 +8,14 @@ const nextConfig: NextConfig = {
 		ignoreDuringBuilds: true,
 	},
 
-  images: {
+	images: {
 		formats: ['image/avif', 'image/webp'],
-		// remotePatterns: [
-		// 	{
-		// 		protocol: 'https',
-		// 		hostname: 'cdn.sanity.io',
-		// 	},
-		// ],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: process.env.DIRECTUS_API_ENDPOINT!.replace('https://', ''),
+			},
+		],
 	},
 }
 

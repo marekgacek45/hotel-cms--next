@@ -1,6 +1,9 @@
 import LinkBtn from '@/components/link-btn'
+import { getAssetUrl } from '@/lib/utils'
 
 import { ChevronDown, ChevronRight, Check } from 'lucide-react'
+import Image from 'next/image'
+
 
 const Panel = () => {
 	const Item = ({ children }: { children: React.ReactNode }) => {
@@ -35,26 +38,36 @@ const Panel = () => {
 	)
 }
 
-const Hero = () => {
+const Hero = ({ data }) => {
+
 	return (
 		<section className='relative w-full h-dvh flex justify-center items-center  overflow-hidden '>
-			<video
+			{ data.home_hero_type === 'video' ? <video
 				className='absolute inset-0 w-full h-full object-cover'
 				autoPlay
 				muted
 				loop
 				playsInline
-				poster='/assets/hero-poster.jpg'>
-				<source src='/assets/hero.mp4' type='video/mp4' />
-			</video>
+				poster={getAssetUrl(data.home_hero_poster)}>
+				<source src={getAssetUrl(data.home_hero_video)} type='video/mp4' />
+			</video> : 
+			
+			<Image src={getAssetUrl(data.home_hero_image.id)} alt={data.home_hero_image.description} width={1920} height={1080} className='absolute inset-0 w-full h-full object-cover' priority/>
+			
+			}
 			<div className='absolute inset-0 w-full h-full bg-background-dark/20  z-10'></div>
 
 			<div className=' flex flex-col justify-center items-center gap-12 z-20'>
-				<h1 className='flex flex-col justify-center items-center px-5 md:px-0 font-extralight text-center '>
+				<h1 className='flex flex-col justify-center items-center px-5 md:px-0 font-extralight text-center'>
+					{data.home_hero_preheading && (
+						<span className='text-xs md:text-lg tracking-[0.5em] uppercase'> {data.home_hero_preheading}</span>
+					)}
 					<span className='text-6xl md:text-9xl 2xl:text-[140px] md:leading-36 font-extralight tracking-[-.05em]'>
-						ELEMENTS
+						{data.home_hero_heading}
 					</span>
-					<span className='text-xs md:text-lg tracking-[0.5em] uppercase'>RODZINNY HOTEL Z BASENEM W GÓRACH</span>
+					{data.home_hero_subheading && (
+						<span className='text-xs md:text-lg tracking-[0.5em] uppercase mt-4'> {data.home_hero_subheading}</span>
+					)}
 				</h1>
 
 				<div className=' flex md:hidden flex-col justify-center items-center gap-4'>

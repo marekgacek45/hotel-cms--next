@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import HeaderInitial from '@/components/header/header-initial'
 import HeaderScroll from '@/components/header/header-scroll'
 
-const Header = () => {
+const Header = ({ global }: { global: Global }) => {
 	const [isScrolled, setIsScrolled] = useState(false)
 
 	useEffect(() => {
@@ -13,7 +13,6 @@ const Header = () => {
 			setIsScrolled(window.scrollY > 10)
 		}
 
-		// Sprawdzenie pozycji na start
 		checkPosition()
 
 		window.addEventListener('scroll', checkPosition)
@@ -26,7 +25,7 @@ const Header = () => {
 				className={`absolute top-0 left-0 w-full transition-transform duration-500 ${
 					isScrolled ? '-translate-y-full' : 'translate-y-0'
 				}`}>
-				<HeaderInitial />
+				<HeaderInitial global={global} />
 			</div>
 			<div
 				className={`absolute top-0 left-0 w-full transition-transform duration-500 ${

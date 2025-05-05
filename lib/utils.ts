@@ -14,3 +14,8 @@ export const slugify = (str: string) => {
 		.replace(/-+/g, '-')
 	return str
 }
+
+
+export const getAssetUrl = (thumbnail: string) => {
+	return `${process.env.DIRECTUS_API_ENDPOINT}/assets/${thumbnail}`;
+};
