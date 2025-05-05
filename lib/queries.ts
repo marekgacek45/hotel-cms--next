@@ -23,3 +23,11 @@ export const getFaqData = async () =>
 			fields: ['*'],
 		})
 	)
+
+	export const getSpecialOffers = async (fields: string[]) =>
+		await directus.request<Home>(
+			readItems('special_offer', {
+				filter: { status: { _eq: 'published' } },
+				fields,
+			})
+		)

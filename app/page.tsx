@@ -9,13 +9,15 @@ import AttractionsArea from '@/components/home/attractions-area'
 import AttractionsHotel from '@/components/home/attractions-hotel'
 import Faq from '@/components/home/faq'
 import Vouchers from '@/components/home/vouchers'
-import { getHomeData } from '@/lib/queries'
+import { getHomeData, getSpecialOffers } from '@/lib/queries'
 
 const Home = async () => {
 
 const homeHero = await getHomeData(['home_hero_type','home_hero_video','home_hero_image.id','home_hero_image.description','home_hero_preheading','home_hero_heading','home_hero_subheading',]);
 
-console.log('HOMEPAGE',homeHero.home_hero_image)
+const specialOffers = await getSpecialOffers(['title','price',"stay_type",'min_nights','thumbnail_type','thumbnail_image.id','thumbnail_image.description','thumbnail_video','thumbnail_poster','ribbon','ribbon_title','ribbon_color']);
+
+console.log('offers',specialOffers)
 	
 	return (
 		<>
@@ -23,7 +25,7 @@ console.log('HOMEPAGE',homeHero.home_hero_image)
 			<About />
 			<Children />
 			<AboutSecond />
-			<SpecialOffers />
+			<SpecialOffers data={specialOffers}/>
 			<Morning />
 			<Restaurant />
 			<AttractionsArea />

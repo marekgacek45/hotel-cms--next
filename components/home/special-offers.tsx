@@ -8,8 +8,9 @@ import LinkBtn from '../link-btn'
 import { SwiperSlide } from 'swiper/react'
 import Card from '../special-offers/card'
 import ChevronButton from '../special-offers/chevron-button'
+import { slugify } from '@/lib/utils'
 
-export default function SpecialOffersSection() {
+const SpecialOffersSection = ({ data }) => {
 	const swiperRef = useRef<SwiperType | null>(null)
 
 	return (
@@ -23,7 +24,6 @@ export default function SpecialOffersSection() {
 						<div className='flex md:space-x-4'>
 							<ChevronButton direction='prev' swiperRef={swiperRef} />
 							<ChevronButton direction='next' swiperRef={swiperRef} />
-						
 						</div>
 					</div>
 
@@ -34,26 +34,31 @@ export default function SpecialOffersSection() {
 
 				{/* Przekazujemy ref do Carousel */}
 				<Carousel swiperRef={swiperRef}>
-					<SwiperSlide >
+					{data.map(offer => (
+						<SwiperSlide key={slugify(offer.title)}>
+							<Card offer={offer} />
+						</SwiperSlide>
+					))}
+
+					{/* <SwiperSlide>
 						<Card />
 					</SwiperSlide>
-					<SwiperSlide >
+					<SwiperSlide>
 						<Card />
 					</SwiperSlide>
-					<SwiperSlide >
+					<SwiperSlide>
 						<Card />
 					</SwiperSlide>
-					<SwiperSlide >
+					<SwiperSlide>
 						<Card />
 					</SwiperSlide>
-					<SwiperSlide >
+					<SwiperSlide>
 						<Card />
-					</SwiperSlide>
-					<SwiperSlide >
-						<Card />
-					</SwiperSlide>
+					</SwiperSlide> */}
 				</Carousel>
 			</div>
 		</section>
 	)
 }
+
+export default SpecialOffersSection

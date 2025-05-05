@@ -17,5 +17,5 @@ export const slugify = (str: string) => {
 
 
 export const getAssetUrl = (thumbnail: string) => {
-	return `${process.env.DIRECTUS_API_ENDPOINT}/assets/${thumbnail}`;
+	return `https://hotel-admin.marekgacekdev.net.pl/assets/${thumbnail}`;
 };
