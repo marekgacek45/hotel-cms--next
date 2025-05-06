@@ -18,9 +18,9 @@ const CarouselFraction = ({ swiperRef, children }: CarouselProps) => {
 <ButtonsFraction swiperRef={swiperRef} className='hidden xl:block absolute -right-[87px] top-[80px] z-50'/>
 
 			<Swiper
-				pagination={{
-					type: 'fraction',
-				}}
+				// pagination={{
+				// 	type: 'fraction',
+				// }}
 				onSwiper={swiper => (swiperRef.current = swiper)}
 				slidesPerView={1}
 				spaceBetween={10}

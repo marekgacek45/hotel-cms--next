@@ -10,27 +10,45 @@ import AttractionsHotel from '@/components/home/attractions-hotel'
 import Faq from '@/components/home/faq'
 import Vouchers from '@/components/home/vouchers'
 import { getHomeData, getSpecialOffers } from '@/lib/queries'
+import BlocksRenderer from '@/components/blocks/blocks-renderer'
 
 const Home = async () => {
+	const homeHero = await getHomeData()
 
-const homeHero = await getHomeData(['home_hero_type','home_hero_video','home_hero_image.id','home_hero_image.description','home_hero_preheading','home_hero_heading','home_hero_subheading',]);
+	const specialOffers = await getSpecialOffers([
+		'title',
+		'price',
+		'stay_type',
+		'min_nights',
+		'thumbnail_type',
+		'thumbnail_image.id',
+		'thumbnail_image.description',
+		'thumbnail_video',
+		'thumbnail_poster',
+		'ribbon',
+		'ribbon_title',
+		'ribbon_color',
+	])
 
-const specialOffers = await getSpecialOffers(['title','price',"stay_type",'min_nights','thumbnail_type','thumbnail_image.id','thumbnail_image.description','thumbnail_video','thumbnail_poster','ribbon','ribbon_title','ribbon_color']);
+	const home = await getHomeData()
 
-console.log('offers',specialOffers)
-	
+	// console.log('HOME DATA',homeData)
+
 	return (
 		<>
 			<Hero data={homeHero} />
+
+			<BlocksRenderer blocks={home.blocks} />
+
 			<About />
 			<Children />
 			<AboutSecond />
-			<SpecialOffers data={specialOffers}/>
+			<SpecialOffers data={specialOffers} />
 			<Morning />
 			<Restaurant />
 			<AttractionsArea />
 			<AttractionsHotel />
-			<Faq />
+			{/* <Faq /> */}
 			<Vouchers />
 		</>
 	)

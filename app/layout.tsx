@@ -37,7 +37,6 @@ const RootLayout = async ({
 
 
 
-	console.log('HOME',home)
 
 
 	return (

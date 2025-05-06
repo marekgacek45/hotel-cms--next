@@ -10,10 +10,29 @@ export const getGlobalData = async () =>
 		})
 	)
 
-export const getHomeData = async (fields: string[]) =>
+export const getHomeData = async () =>
 	await directus.request<Home>(
 		readItems('home', {
-			fields,
+			fields: [
+				'*',
+				{
+					blocks: [
+						'*',
+						{
+							item: {
+								
+							
+								block_faq: ['*'],
+								block_attractions: ['*', 'selected_attractions.attractions_id.*'],
+								block_special_offers: ['*', 'selected_offers.offers_id.*'],
+								// block_text_image: ['*'],
+								// block_properties_slider: ['*', 'selected_properties.properties_id.*'],
+								// block_blog_section: ['*'],
+							},
+						},
+					],
+				},
+			],
 		})
 	)
 

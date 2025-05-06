@@ -13,6 +13,8 @@ import { slugify } from '@/lib/utils'
 const SpecialOffersSection = ({ data }) => {
 	const swiperRef = useRef<SwiperType | null>(null)
 
+	console.log(data)
+
 	return (
 		<section className='section '>
 			<div className='wrapper'>

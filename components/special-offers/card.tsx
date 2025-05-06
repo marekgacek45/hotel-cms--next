@@ -8,20 +8,14 @@ import Link from 'next/link'
 import { getAssetUrl } from '@/lib/utils'
 
 const Card = ({ offer }) => {
-	let ribbonColor
-
-	if (offer.ribbon_color === 'default') {
-		ribbonColor = 'bg-primary-600'
-	} else if (offer.ribbon_color === 'alert') {
-		ribbonColor = 'bg-red-500'
-	}
+	
 
 	return (
 		<Link
 			href='#'
 			className='h-[420px] lg:h-[550px] 2xl:h-[650px] bg-white flex justify-start items-end w-full relative group overflow-hidden'>
 			{offer.ribbon && (
-				<div className={`${ribbonColor} absolute top-[45px] -right-[65px] w-[290px] uppercase rotate-[42deg] z-20 py-2.5 px-8 text-center`}>
+				<div className=' absolute top-[45px] -right-[65px] w-[290px] uppercase rotate-[42deg] z-20 py-2.5 px-8 text-center' style={{backgroundColor: offer.ribbon_color}}>
 					<span className='text-sm font-medium leading-[1.42] uppercase text-white tracking-[.17em]'>
 						{offer.ribbon_title}
 					</span>
