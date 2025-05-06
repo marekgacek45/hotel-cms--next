@@ -15,20 +15,20 @@ import BlocksRenderer from '@/components/blocks/blocks-renderer'
 const Home = async () => {
 	const homeHero = await getHomeData()
 
-	const specialOffers = await getSpecialOffers([
-		'title',
-		'price',
-		'stay_type',
-		'min_nights',
-		'thumbnail_type',
-		'thumbnail_image.id',
-		'thumbnail_image.description',
-		'thumbnail_video',
-		'thumbnail_poster',
-		'ribbon',
-		'ribbon_title',
-		'ribbon_color',
-	])
+	// const specialOffers = await getSpecialOffers([
+	// 	'title',
+	// 	'price',
+	// 	'stay_type',
+	// 	'min_nights',
+	// 	'thumbnail_type',
+	// 	'thumbnail_image.id',
+	// 	'thumbnail_image.description',
+	// 	'thumbnail_video',
+	// 	'thumbnail_poster',
+	// 	'ribbon',
+	// 	'ribbon_title',
+	// 	'ribbon_color',
+	// ])
 
 	const home = await getHomeData()
 
@@ -43,8 +43,8 @@ const Home = async () => {
 			{/* <About /> */}
 			{/* <Children /> */}
 			{/* <AboutSecond /> */}
-			<SpecialOffers data={specialOffers} />
-			<Morning />
+			{/* <SpecialOffers data={specialOffers} /> */}
+			{/* <Morning /> */}
 			<Restaurant />
 			{/* <AttractionsArea /> */}
 			{/* <AttractionsHotel /> */}

@@ -4,7 +4,6 @@ import LinkBtn from '../link-btn'
 
 import Attractions from './attractions'
 import { readItems } from '@directus/sdk'
-import AttractionsHotel from './attractions-hotel'
 
 const AttractionsHotelWrapper  = async ({ heading,listing_type,selected_attractions }) => {
     const sortOrder = (() => {
@@ -22,7 +21,7 @@ const AttractionsHotelWrapper  = async ({ heading,listing_type,selected_attracti
     const attractions =
     listing_type === 'latest'
         ? await directus.request<Property[]>(
-                readItems('attractions_hotel', {
+                readItems('attractions', {
                     filter:{status: { _eq: 'published' }},
                     sort: [sortOrder],
                     fields: ['name','slug','thumbnail',],
@@ -32,7 +31,7 @@ const AttractionsHotelWrapper  = async ({ heading,listing_type,selected_attracti
         : selected_attractions || []
 
 
-     
+      
 
 
 	return (
@@ -48,7 +47,7 @@ const AttractionsHotelWrapper  = async ({ heading,listing_type,selected_attracti
 					</LinkBtn>
 				</div>
 
-				<AttractionsHotel attractions={attractions} listing_type={listing_type}/>
+				<Attractions attractions={attractions} listing_type={listing_type}/>
 			</div>
 		</section>
 	)
