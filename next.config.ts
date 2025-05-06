@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: process.env.DIRECTUS_API_ENDPOINT!.replace('https://', ''),
+				hostname: 'hotel-admin.marekgacekdev.net.pl',
 			},
 		],
 	},
