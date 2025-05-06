@@ -1,3 +1,4 @@
+import { getAssetUrl } from '@/lib/utils'
 import Image, { StaticImageData } from 'next/image'
 
 const TextImageBlock = ({
@@ -19,9 +20,10 @@ const TextImageBlock = ({
 		<section {...idName ? { id: idName } : {}}  className='section'>
 			<div className='flex flex-col lg:flex-row justify-center gap-12 xl:gap-24 max-w-screen-3xl mx-auto px-5 lg:px-0'>
 				<Image
-					src={img}
+					src={getAssetUrl(img)}
 					alt={alt}
-					
+					width={700}
+					height={500}
 					quality={70}
 					sizes='(max-width: 1024px) 100vw, 860px'
 					className={`max-h-[550px] lg:max-h-[740px] w-full lg:w-1/2 object-cover object-center order-1 h-auto ${reverse? '' : 'lg:order-none'}`}

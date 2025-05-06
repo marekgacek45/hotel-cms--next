@@ -7,11 +7,11 @@ import { SwiperSlide } from 'swiper/react'
 import { Swiper as SwiperType } from 'swiper'
 import AttractionCard from '../cards/attractions'
 
-const Attractions = ({ attractions, listing_type }) => {
+const AttractionsHotel = ({ attractions, listing_type }) => {
 	const swiperRef = useRef<SwiperType | null>(null)
 
 
-  
+    console.log('atrakcje hotelowe',attractions)
 
 
 	return (
@@ -26,9 +26,9 @@ const Attractions = ({ attractions, listing_type }) => {
 
 			{listing_type === 'custom' &&
 				attractions?.map(attraction => (
-					<SwiperSlide key={attractions?.attractions_id?.slug || attractions?.slug}>
+					<SwiperSlide key={attraction?.attractions_hotel_id?.slug || attractions?.slug}>
                       
-						<AttractionCard {...(attraction?.attractions_id || attraction)} />
+						<AttractionCard {...(attraction?.attractions_hotel_id || attraction)} />
 					</SwiperSlide>
 				))}
 
@@ -37,4 +37,4 @@ const Attractions = ({ attractions, listing_type }) => {
 	)
 }
 
-export default Attractions
+export default AttractionsHotel

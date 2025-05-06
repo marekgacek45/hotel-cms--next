@@ -32,7 +32,7 @@ const Home = async () => {
 
 	const home = await getHomeData()
 
-	// console.log('HOME DATA',homeData)
+
 
 	return (
 		<>
@@ -40,16 +40,16 @@ const Home = async () => {
 
 			<BlocksRenderer blocks={home.blocks} />
 
-			<About />
-			<Children />
-			<AboutSecond />
+			{/* <About /> */}
+			{/* <Children /> */}
+			{/* <AboutSecond /> */}
 			<SpecialOffers data={specialOffers} />
 			<Morning />
 			<Restaurant />
-			<AttractionsArea />
-			<AttractionsHotel />
+			{/* <AttractionsArea /> */}
+			{/* <AttractionsHotel /> */}
 			{/* <Faq /> */}
-			<Vouchers />
+			{/* <Vouchers /> */}
 		</>
 	)
 }

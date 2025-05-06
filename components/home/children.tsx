@@ -6,7 +6,7 @@ import { List, ListItem } from '@/components/list'
 
 const Children = () => {
 	return (
-		<TextImageBlock reverse img={children} alt='children image' heading='Hotel z atrakcjami dla dzieci'>
+		<TextImageBlock reverse  img={children} alt='children image' heading='Hotel z atrakcjami dla dzieci'>
 			<List>
 				<ListItem variant='secondary' href='#' title='Animacje' description='dla dzieci i dorosłych' />
 				<ListItem variant='secondary' href='#' title='game room'  />

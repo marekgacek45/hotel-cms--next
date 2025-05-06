@@ -24,8 +24,11 @@ export const getHomeData = async () =>
 							
 								block_faq: ['*'],
 								block_attractions: ['*', 'selected_attractions.attractions_id.*'],
+								block_attractions_hotel: ['*', 'selected_attractions.attractions_hotel_id.*'],
 								block_special_offers: ['*', 'selected_offers.offers_id.*'],
-								// block_text_image: ['*'],
+								block_vouchers: ['*', 'selected_vouchers.vouchers_id.*'],
+								block_text_image: ['*'],
+								block_text_gallery: ['*','images.directus_files_id.*'],
 								// block_properties_slider: ['*', 'selected_properties.properties_id.*'],
 								// block_blog_section: ['*'],
 							},
