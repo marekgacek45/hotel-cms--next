@@ -32,13 +32,14 @@ export const NAV_ITEMS = [
 		name: 'Dorośli',
 		href: ROUTES.ADULTS,
 	},
+	
 	{
-		name: 'Gastronomia',
-		href: ROUTES.GASTRONOMY,
+		name: 'Lokalne atrakcje',
+		href: ROUTES.LOCAL_ATTRACTION.LIST,
 	},
 	{
-		name: 'Atrakcje',
-		href: ROUTES.ATTRACTIONS,
+		name: 'Atrakcje hotelowe',
+		href: ROUTES.HOTEL_ATTRACTION.LIST,
 	},
 	{
 		name: 'Galeria',

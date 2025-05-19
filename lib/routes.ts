@@ -26,6 +26,10 @@ const ROUTES = {
 		LIST: '/atrakcje-okolicy',
 		DETAIL: (slug: string) => `/atrakcje-okolicy/${slug}`,
 	},
+	HOTEL_ATTRACTION: {
+		LIST: '/atrakcje-hotelowe',
+		DETAIL: (slug: string) => `/atrakcje-hotelowe/${slug}`,
+	},
 } as const
 
 export default ROUTES

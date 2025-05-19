@@ -2,6 +2,7 @@ import Attractions from "./attractions"
 import AttractionsHotelWrapper from "./attractions-hotel-wrapper"
 import AttractionsWrapper from "./attractions-wrapper"
 import BlockAttractionsGrid from "./block-attractions-grid"
+import BlockAttractionsHotelGrid from "./block-attractions-hotel"
 import BlockHero from "./block-hero"
 import BlockSpecialOffersGrid from "./block-special-offers-grid"
 import BlockSpecialOffersWrapper from "./block-special-offers-wrapper"
@@ -75,6 +76,11 @@ const BlocksRenderer = ({ blocks }: { blocks: Home['blocks'] }) => {
 					
 
 					return <BlockAttractionsGrid  key={block.item.id} {...block.item}  />
+				}
+				if (block.collection === 'block_attractions_hotel_grid') {
+					
+
+					return <BlockAttractionsHotelGrid  key={block.item.id} {...block.item}  />
 				}
 
 			

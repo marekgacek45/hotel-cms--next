@@ -126,6 +126,50 @@ export const getAttractionBySlug = async (slug: string) => {
 	return attraction[0]
 }
 
+export const getHotelAttractionBySlug = async (slug: string) => {
+	const attraction = await directus.request<Post[]>(
+		readItems('attractions_hotel', {
+			filter: { slug: { _eq: slug } },
+
+			fields: ['*','gallery.directus_files_id.*'],
+		})
+	)
+
+	return attraction[0]
+}
+
 export const getLocalAttractions = async (options?: ItemsQuery) => {
 	return await directus.request<Post[]>(readItems('attractions', options))
 }
+
+export const getHotelAttractions = async (options?: ItemsQuery) => {
+	return await directus.request<Post[]>(readItems('attractions_hotel', options))
+}
+
+
+
+export const getHotelAttractionsPageData = async () =>
+	await directus.request<Home>(
+		readItems('hotel_attractions_page', {
+			fields: [
+				'*',
+				{
+					blocks: [
+						'*',
+						{
+							item: {
+								block_faq: ['*'],
+								block_hotel_attractions: ['*', 'selected_attractions.attractions_id.*'],
+								block_attractions_hotel_grid: ['*'],
+								block_text_image: ['*'],
+								block_text_image_full: ['*'],
+								block_text_image_special: ['*'],
+								block_text_gallery: ['*', 'images.directus_files_id.*'],
+								block_hero: ['*'],
+							},
+						},
+					],
+				},
+			],
+		})
+	)
