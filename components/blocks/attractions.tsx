@@ -11,7 +11,7 @@ const Attractions = ({ attractions, listing_type }) => {
 	const swiperRef = useRef<SwiperType | null>(null)
 
 
-  
+
 
 
 	return (

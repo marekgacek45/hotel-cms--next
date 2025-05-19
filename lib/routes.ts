@@ -21,6 +21,11 @@ const ROUTES = {
 	ATTRACTIONS: '/atrakcje',
 	GALLERY: '/galeria',
 	CONTACT: '/kontakt',
+
+	LOCAL_ATTRACTION: {
+		LIST: '/atrakcje-okolicy',
+		DETAIL: (slug: string) => `/atrakcje-okolicy/${slug}`,
+	},
 } as const
 
 export default ROUTES

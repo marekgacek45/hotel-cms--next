@@ -45,12 +45,7 @@ const Vouchers = async ({ heading, listing_type, selected_vouchers }) => {
 							<VoucherCard key={voucher?.vouchers_id?.slug || voucher?.slug} {...(voucher?.vouchers_id || voucher)} />
 						))}
 
-					{/* <VoucherCard />
-					<VoucherCard />
-					<VoucherCard />
-					<VoucherCard />
-					<VoucherCard />
-					<VoucherCard /> */}
+				
 				</div>
 			</div>
 		</section>

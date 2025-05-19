@@ -78,6 +78,10 @@
 	.heading {
 		@apply text-primary-600 text-2xl md:text-[43px] font-normal leading-[1.1] after:block after:w-[35px] after:border-t after:border-primary-600 after:border-b after:p-[2px] after:mt-6;
 	}
+
+	.prose-content {
+		@apply prose  font-text  text-font-light
+	}
 }
 
 /* :root {

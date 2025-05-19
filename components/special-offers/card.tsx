@@ -24,7 +24,7 @@ const Card = ({ offer }) => {
 
 			{offer.thumbnail_type === 'image' ? (
 				<Image
-					src={getAssetUrl(offer.thumbnail_image.id)}
+					src={getAssetUrl(offer.thumbnail_image)}
 					alt={offer.thumbnail_image.description}
 					fill
 					sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'

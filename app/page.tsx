@@ -45,7 +45,7 @@ const Home = async () => {
 			{/* <AboutSecond /> */}
 			{/* <SpecialOffers data={specialOffers} /> */}
 			{/* <Morning /> */}
-			<Restaurant />
+			{/* <Restaurant /> */}
 			{/* <AttractionsArea /> */}
 			{/* <AttractionsHotel /> */}
 			{/* <Faq /> */}
